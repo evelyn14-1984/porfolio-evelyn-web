@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evelyn Arcentales | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f0c29;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --primary: #a18cd1; /* Lila suave */
+            --accent: #fbc2eb; /* Rosa pastel */
+            --text: #ffffff;
+            --text-muted: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: 
+        linear-gradient(rgba(15, 12, 41, 0.85), rgba(48, 43, 99, 0.8)), /* Capa oscura */
+        url('fondo.jpg');
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 2rem;
+        }
+
+        /* Tipografía técnica para títulos */
+        h1, h2, h3, .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Contenedor Principal estilo BENTO GRID */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Estilo base de las tarjetas (Cristal) */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-color: var(--primary);
+        }
+
+        /* --- ASIGNACIÓN DE CELDAS --- */
+        
+        /* Hero: Perfil Principal */
+        .card-hero {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(160deg, rgba(161, 89, 89, 0.1), rgba(190, 48, 48, 0.02));
+        }
+s
+        /* Foto */
+        .card-photo {
+            grid-column: span 1;
+            grid-row: span 1;
+            padding: 0; /* Foto ocupa todo */
+        }
+        .card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        /* Estado / Disponibilidad */
+        .card-status {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid rgba(46, 204, 113, 0.3);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Tech Stack (Skills) */
+        .card-stack {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        /* Experiencia */
+        .card-exp {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Formación */
+        .card-edu {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Contacto */
+        .card-contact {
+            grid-column: span 4;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 1rem;
+        }
+
+        /* --- DETALLES DE CONTENIDO --- */
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+           background: linear-gradient(90deg, #dda4a4 0%, #a18cd1 100%);
+         /*    -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; */
+        }
+
+        .role-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--text);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* Listas de experiencia/educación */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            border-left: 2px solid var(--primary);
+            padding-left: 1rem;
+        }
+        .timeline-item h4 { font-size: 1.1rem; color: #fff; }
+        .timeline-item span { font-size: 0.85rem; color: var(--primary); display: block; margin-bottom: 0.3rem;}
+        .timeline-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Tags de habilidades */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            background: rgba(255,255,255,0.05);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Animación de pulso para status */
+        .status-dot {
+            width: 15px;
+            height: 15px;
+            background: #2ecc71;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 1);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+                grid-template-rows: auto;
+            }
+            .card { grid-column: span 1 !important; grid-row: span 1 !important; }
+            /* Reordenar para móvil: Foto primero */
+            .card-photo { order: -1; aspect-ratio: 1/1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bento-grid">
+
+        <div class="card card-hero">
+            <div>
+                <span class="role-tag">Desarrolladora & SysAdmin</span>
+                <h1 class="hero-title">Hola, soy <br>Evelyn Arcentales.</h1>
+                <p class="description">
+                    Estudiante de Grado Superior en <strong>Administración de Sistemas Informáticos en Red</strong> con pasión por las tecnologías emergentes. Me especializo en la lógica de bases de datos y la creatividad del desarrollo web.
+                </p>
+                <p class="description" style="font-size: 0.9rem; font-style: italic; opacity: 0.7;">
+                    "No paro hasta entender por qué falló el servidor y cómo evitar que vuelva a suceder."
+                </p>
+            </div>
+            <a href="mailto:evelynap@hotmail.com" class="btn">Contáctame</a>
+        </div>
+
+        <div class="card card-photo">
+            <img src="tu-foto.jpg" alt="Evelyn Arcentales" id="profile-img">
+        </div>
+
+        <div class="card card-status">
+            <div class="status-dot"></div>
+            <h3 class="mono">DISPONIBLE</h3>
+            <p style="font-size: 0.8rem; margin-top:0.5rem; color: var(--text-muted);">
+                Madrid / Remoto<br>Incorporación Inmediata
+            </p>
+        </div>
+
+        <div class="card card-stack">
+            <h3 class="mono" style="margin-bottom: 1.5rem;">Habilidades</h3>
+            
+            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--primary);">Desarrollo</h4>
+            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                <span class="tag">HTML5 / CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Web Responsive</span>
+                <span class="tag">SEO Básico</span>
+            </div>
+
+            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--primary);">Sistemas & Datos</h4>
+            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                <span class="tag">SQL / PL-SQL</span>
+                <span class="tag">Admin. Redes</span>
+                <span class="tag">Ciberseguridad</span>
+                <span class="tag">Oracle</span>
+            </div>
+
+            <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--primary);">Soft Skills</h4>
+            <div class="skill-tags">
+                <span class="tag">Trabajo en Equipo</span>
+                <span class="tag">Proactividad</span>
+                <span class="tag">Escucha Activa</span>
+            </div>
+        </div>
+
+        <div class="card card-exp">
+            <h3 class="mono" style="margin-bottom: 1.5rem;">Experiencia Laboral</h3>
+            
+            <div class="timeline-item">
+                <h4>Auxiliar Administrativo</h4>
+                <span>Centro de Salud SERMAS | 2025 (Suplencias)</span>
+                <p>Gestión de citas y tramitación de horarios médicos. Atención directa al paciente y resolución de incidencias administrativas.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h4>Administrador de Sitios Web</h4>
+                <span>Pink Stone Advertising | 2023</span>
+                <p>Creación y maquetación web (HTML/CSS/JS). Optimización SEO y mantenimiento de estructura responsive.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h4>Coordinador y Control de Calidad</h4>
+                <span>Global Servicios Marktel | 2011 - 2023</span>
+                <p>Liderazgo de equipos y gestión de calidad en entorno bancario. Supervisión de operaciones financieras.</p>
+            </div>
+        </div>
+
+        <div class="card card-edu">
+            <h3 class="mono" style="margin-bottom: 1.5rem;">Formación</h3>
+            
+            <div class="timeline-item">
+                <h4>Técnico en Administración de Sistemas</h4>
+                <span>Prometeo By The Power | 2024 - Actualidad</span>
+                <p>Admin. de servidores, configuración de redes y ciberseguridad.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h4>Desarrollo de Base de Datos (SQL)</h4>
+                <span>CAS Training & Oracle | 2025</span>
+                <p>Modelado de datos, consultas avanzadas y automatización con PL/SQL.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h4>Certificado Profesionalidad Web</h4>
+                <span>CFTIC Madrid | 2022 - 2023</span>
+                <p>Diseño, maquetación y publicación de páginas web.</p>
+            </div>
+        </div>
+
+        <div class="card card-contact">
+            <h2 class="mono" style="font-size: 2rem; margin-bottom: 1rem;">¿Trabajamos juntos?</h2>
+            <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--text-muted);">
+                Busco una oportunidad para aplicar mis habilidades técnicas en un entorno profesional real, contribuyendo a la mejora de la organización.
+            </p>
+            <a href="mailto:evelynap@hotmail.com" class="btn">evelynap@hotmail.com</a>
+            <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">Madrid, España</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Animación simple de aparición al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100); // Efecto cascada
+            });
+        });
+    </script>
+</body>
+</html>
