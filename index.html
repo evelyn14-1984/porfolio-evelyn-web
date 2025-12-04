@@ -213,6 +213,42 @@ s
             100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
+        /* --- ESTILOS DE PROYECTOS --- */
+        
+        .card-project {
+            grid-column: span 2; /* Ocupan mitad y mitad */
+            grid-row: span 1;
+            transition: 0.3s;
+        }
+
+        .card-project-full {
+            grid-column: span 4; /* Ocupa todo el ancho */
+            grid-row: span 1;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Efecto de código decorativo para la tarjeta de SQL */
+        .code-snippet {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #fab1a0;
+            border-left: 3px solid #fab1a0;
+            display: none; /* Se oculta en móvil */
+        }
+
+        /* Hacer que aparezca en pantallas grandes */
+        @media (min-width: 900px) {
+            .code-snippet { display: block; }
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .bento-grid {
@@ -325,6 +361,90 @@ s
                 <p>Diseño, maquetación y publicación de páginas web.</p>
             </div>
         </div>
+
+        <div class="card" style="grid-column: span 4; background: transparent; border: none; box-shadow: none; padding: 2rem 0 1rem 0;">
+            <h2 class="mono" style="font-size: 2rem;">📂 Proyectos Destacados</h2>
+        </div>
+
+        <div class="card card-project-full">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="project-header">
+                        <span style="font-size: 2rem;">💻</span>
+                        <h3 class="mono">Proyectos Web Full-Stack</h3>
+                    </div>
+                    <p style="margin: 1rem 0; max-width: 600px; color: var(--text-muted);">
+                        Colección de sitios web desarrollados aplicando estándares W3C. Maquetación moderna, animaciones fluidas y estructura semántica.
+                    </p>
+                </div>
+                
+                
+            </div>
+            
+            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                <span class="tag" style="background: rgba(225, 112, 85, 0.2); border-color: #e17055;">HTML5</span>
+                <span class="tag" style="background: rgba(9, 132, 227, 0.2); border-color: #0984e3;">CSS3</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+                
+                <a href="cafe-oslo/index.html" target="_blank" class="btn" style="font-size: 0.85rem; padding: 10px 15px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    ☕ Ver Café Oslo
+                </a>
+
+                <a href="clock-events/index.html" target="_blank" class="btn" style="font-size: 0.85rem; padding: 10px 15px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    🌊 Ver clock-events
+                </a>
+
+            </div>
+        </div>
+            
+            <!-- <div class="skill-tags">
+                <span class="tag" style="background: rgba(225, 112, 85, 0.2); border-color: #e17055;">HTML5 Semántico</span>
+                <span class="tag" style="background: rgba(9, 132, 227, 0.2); border-color: #0984e3;">CSS3 / Grid</span>
+                <span class="tag" style="background: rgba(253, 203, 110, 0.2); border-color: #fdcb6e; color: #fdcb6e;">JavaScript</span>
+                
+            </div> -->
+        </div>
+
+       <!--  <div class="card card-project">
+            <div class="project-header">
+                <span style="font-size: 2rem;">🛡️</span>
+                <h3 class="mono">Seguridad de Red</h3>
+            </div>
+            <p style="margin: 1rem 0; color: var(--text-muted);">
+                Configuración de firewall y políticas de seguridad para entorno Windows Server. Auditoría de vulnerabilidades.
+            </p>
+            <div class="skill-tags">
+                <span class="tag" style="background: rgba(0, 184, 148, 0.2); border-color: #00b894;">Windows Server</span>
+                <span class="tag">Firewall</span>
+                <span class="tag">Active Directory</span>
+            </div>
+        </div> -->
+
+        <!-- <div class="card card-project-full">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="project-header">
+                        <span style="font-size: 2rem;">💾</span>
+                        <h3 class="mono">Gestión Hospitalaria SQL</h3>
+                    </div>
+                    <p style="margin: 1rem 0; max-width: 600px; color: var(--text-muted);">
+                        Desarrollo de esquema de base de datos para gestión de citas médicas (inspirado en experiencia real). Creación de procedimientos almacenados (PL/SQL) para automatizar reportes diarios.
+                    </p>
+                </div>
+                <div class="code-snippet">
+                    SELECT * FROM pacientes<br>
+                    WHERE estado = 'urgente';
+                </div>
+            </div>
+            <div class="skill-tags">
+                <span class="tag" style="background: rgba(108, 92, 231, 0.2); border-color: #6c5ce7;"s>Oracle SQL</span>
+                <span class="tag">PL/SQL</span>
+                <span class="tag">Data Modeling</span>
+            </div>
+        </div> -->
 
         <div class="card card-contact">
             <h2 class="mono" style="font-size: 2rem; margin-bottom: 1rem;">¿Trabajamos juntos?</h2>
