@@ -368,7 +368,124 @@ footer img {
     width: 100px;
 }
 
- 
+ /* =========================================
+   RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+   Pegar esto al final de style.css
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    /* 1. ESTRUCTURA GENERAL: Todo a una columna */
+    .filaFlex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Anular los anchos porcentuales para que ocupen todo el ancho */
+    .ancho30, .ancho33, .ancho50 {
+        flex-basis: 100%;
+        width: 100%;
+        margin-bottom: 30px; /* Espacio entre elementos apilados */
+    }
+
+    .anchoMaximo {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* Reducir el padding (relleno) de las secciones para ganar espacio */
+    section, aside {
+        padding: 40px 20px;
+    }
+
+    /* 2. MENÚ DE NAVEGACIÓN */
+    .menu {
+        padding: 20px;
+        height: auto; /* Dejar que crezca según el contenido */
+    }
+
+    .menu ul {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        flex-direction: column; /* Enlaces uno debajo del otro */
+    }
+
+    .menu ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Línea separadora sutil */
+    }
+
+    .menu ul a {
+        display: block;
+        line-height: 40px; /* Más altura para el dedo */
+    }
+
+    /* 3. HERO (Cabecera Principal) */
+    .hero {
+        padding: 80px 20px;
+        min-height: auto; /* Quitar altura fija */
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 1.2em; /* Texto más pequeño */
+        line-height: 1.4;
+    }
+
+    .hero img {
+        width: 80%; /* La imagen se adapta al ancho */
+        max-width: 300px; /* Límite para que no sea gigante */
+        margin-top: 30px;
+        height: auto;
+    }
+
+    /* 4. SERVICIOS */
+    .iconosServicios {
+        justify-content: center;
+    }
+
+    .iconosServicios li {
+        margin-bottom: 30px; /* Separar los iconos */
+    }
+
+    .columnasInfoServicios {
+        text-align: center;
+    }
+
+    .enlaceMasInfo {
+        text-align: center; /* Centrar el botón de más info */
+    }
+
+    /* 5. SOLUCIONES (Cancan) */
+    .soluciones {
+        text-align: center; /* Centrar textos */
+    }
+
+    .iconoRelojCancan {
+        margin-left: 0; /* Quitar margen izquierdo de escritorio */
+        width: 60%; /* Hacer la imagen más pequeña */
+        max-width: 200px;
+        margin: 30px auto 0 auto; /* Centrar imagen */
+        display: block;
+    }
+
+    /* 6. VALORES */
+    .cajaValores {
+        flex-direction: column;
+    }
+
+    .cajaValores > .col {
+        margin-bottom: 50px; /* Separar cada valor */
+        text-align: center;
+    }
+
+    /* 7. AJUSTES DE TEXTO GENERALES */
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 30px;
+    }
+}
  
 
 
