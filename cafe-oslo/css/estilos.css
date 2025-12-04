@@ -1,0 +1,216 @@
+/* Estilos para sitio web Café Oslo */
+
+/* ----- ESTILOS GENERALES --------- */
+*{
+    box-sizing: border-box;
+}
+
+.hipopotamo{
+    width: 170px;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4em;
+}
+
+h1,h2{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+h1{
+    font-weight: 800;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.separador{
+    width: 40%;
+    margin:20px auto;
+    border-bottom:1px solid #FFF;
+}
+
+.boton{
+    padding: 8px 16px;
+    margin: 30px 0 40px;
+    display: inline-block;
+    border:1px solid #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#FFF; 
+}
+
+.boton:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ----- ESTRUCTURA --------- */
+.grid{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+main.grid, .caracteristicas.grid{
+    grid-template-columns: 1fr 1fr;
+}
+
+.brunch, .contacta{
+    grid-column: 1/2;
+}
+
+.fiestas, .donde{
+    grid-column: 2/3;
+}
+
+.ancho100{
+   grid-column: 1/3;
+}
+
+.caracteristicas section:nth-child(odd){
+    /* los odd son los impares */
+    grid-column: 1/2;
+}
+
+.caracteristicas section:nth-child(even){
+     /* los even son los pares */
+    grid-column: 2/3;
+}
+/* ----- CABECERA PRINCIPAL --------- */
+
+.header-principal{
+    padding: 40px 100px;
+    background: url('../imagenes/fondo1.jpg') center center /cover;
+}
+
+.header-superior{
+    align-items: center;
+}
+
+/* navegación */
+
+.header-superior nav li:not(:last-child) {
+    margin-right: 16px;
+}
+
+.header-superior nav a{
+    color:#FFF;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.header-superior nav a:hover{
+    color: yellow;
+}
+
+/* header inferior */
+.header-inferior{
+    margin: 80px 0 30px;
+    text-align: center;
+    color:#FFF;
+
+}
+
+.header-inferior h1{
+    line-height: 1.1em;
+    font-size: 3em;
+}
+
+/* ----- MAIN Y SECCIONES --------- */
+
+/* zona-roja y zona-crema */
+.zona-roja, .zona-crema{
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.zona-roja h2, .zona-crema h2{
+    margin-bottom: 15px;
+}
+
+.zona-roja a{
+    color:#ded6c0;
+    text-decoration: none;
+}
+
+.zona-crema a{
+    color:#2657e9;
+    text-decoration: none;
+}
+
+.zona-roja a:hover, .zona-crema a:hover{
+    text-decoration: underline;
+}
+
+
+.zona-roja{
+    background: #d03b40;
+    color:#ded6c0;
+}
+
+.zona-crema{
+    background: #ded6c0;
+    color:#d03b40;
+}
+
+/* desayunar */
+.desayunar{
+    padding: 60px 40px;
+    background: url('../imagenes/fondo2.jpg') left center / cover;
+    color:#FFF;
+    text-align: center;
+}
+
+.desayunar h2{
+    line-height: 1.1em;
+    font-size: 3em;
+}
+
+/* caracteristicas */
+
+.caracteristicas{
+    margin:30px 60px;
+}
+
+.icono-caracteristicas img{
+    width: 90px;
+}
+
+.texto-caracteristicas{
+    padding: 0 30px 30px 15px;
+}
+
+.texto-caracteristicas h2{
+    margin-bottom: 15px;
+    color:rgb(60, 60, 59);
+}
+
+/* ----- FOOTER PRINCIPAL --------- */
+.footer-principal{
+    padding: 40px;
+    background: #251d1b;
+    text-align: center;
+    color:#FFF;
+}
+
+.footer-principal small{
+    font-size: 1em;
+}
+
+
+
+
+
+
+ 
+
+
+
