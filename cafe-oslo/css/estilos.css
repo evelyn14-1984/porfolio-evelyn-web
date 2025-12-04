@@ -205,7 +205,105 @@ main.grid, .caracteristicas.grid{
     font-size: 1em;
 }
 
+/* =========================================
+   RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+   Pegar al final de estilos.css de Café Oslo
+   ========================================= */
 
+@media (max-width: 850px) {
+
+    /* 1. RESET PRINCIPAL: Convertir el Grid en Columna Flexible */
+    /* Esto fuerza a que todo lo que está lado a lado, se ponga uno encima de otro */
+    .grid, 
+    main.grid, 
+    .caracteristicas.grid,
+    .header-superior,
+    section.nowrap {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        grid-template-columns: 1fr !important; /* Anula las 2 columnas */
+    }
+
+    /* 2. ARREGLAR CABECERA (Header) */
+    .header-principal {
+        /* Antes tenías 100px a los lados, eso en móvil aplasta el contenido. */
+        padding: 40px 20px !important; 
+        background-position: center center;
+    }
+
+    .header-superior {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Centrar el logo */
+    .header-superior div:first-child {
+        margin-bottom: 20px;
+    }
+
+    /* 3. MENÚ DE NAVEGACIÓN */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 15px; /* Espacio entre botones */
+    }
+    
+    nav li {
+        margin: 0 !important; /* Quitar margenes laterales viejos */
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav a {
+        display: block;
+        padding: 10px;
+        font-size: 1.1em;
+        background: rgba(0,0,0,0.3); /* Un fondo suave para que se lea mejor */
+        border-radius: 5px;
+    }
+
+    /* 4. TEXTOS GRANDES */
+    .header-inferior h1 {
+        font-size: 2em !important; /* Reducir tamaño del título gigante */
+    }
+    
+    .separador {
+        width: 80%; /* Hacer la línea más ancha en móvil */
+    }
+
+    /* 5. SECCIONES DE CARACTERÍSTICAS (Iconos) */
+    .caracteristicas {
+        /* Antes tenías 60px de margen, lo bajamos a 10px */
+        margin: 30px 10px !important; 
+    }
+
+    .caracteristicas section {
+        text-align: center; /* Centrar texto e iconos */
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px dashed #ccc; /* Línea de separación entre items */
+    }
+
+    /* Quitar la línea del último elemento */
+    .caracteristicas section:last-child {
+        border-bottom: none;
+    }
+
+    .icono-caracteristicas {
+        margin: 0 auto 15px auto; /* Centrar la imagen del icono */
+    }
+    
+    .texto-caracteristicas {
+        padding: 0 10px; /* Quitar padding excesivo */
+    }
+
+    /* 6. PIE DE PÁGINA */
+    .footer-principal {
+        padding: 20px;
+    }
+}
 
 
 
